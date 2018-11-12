@@ -11,15 +11,15 @@ app.use(express.static('public'));
 // app.get('/api/notes', (req, res) => {res.json(data);});
 
 app.get('/api/notes', (req, res) => {
-  
+  //console.log(req.query);
+  //console.log(req.query.searchTerm);
+  //req.query.searchTerm is coming from the event handler
   if (req.query.searchTerm) {
     const searchTerm = data.filter( term => term.title.includes(req.query.searchTerm));
     // console.log(searchTerm);
     return res.json(searchTerm);
   } 
-  // console.log(req.query);
 
-  //filter will return the data that passes the test by the provided fn (so if you want keep cats, set to false)
   res.json(data);
 });
 
